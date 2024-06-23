@@ -1,0 +1,572 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Home</title>
+    <link rel="stylesheet" href="/styles.css"/>
+    <script src="https://kit.fontawesome.com/b13141fd60.js" crossorigin="anonymous"></script>
+</head>
+<body>
+        <nav>
+            <img src="/image/expense.png" alt="logo" class="img">
+        <ul id="sidemenu">
+            <li><a href="#income">Income</a></li>
+            <li><a href="#expenditure">Expenditure</a></li>
+            <li><a href="#history">History</a></li>
+            <li><a href="#edit">Edit_user</a></li>
+            <li><a href="/logout">Logout</a></li>
+            <i class="fa-solid fa-xmark" id="open" onclick="closemenu()"></i>
+        </ul>
+        <i class="fa-solid fa-bars" id="open" onclick="openmenu()"></i>
+       </nav>
+   <section class="home">
+    <div class="main" style="background-color: rgb(88, 208, 98);">
+        <i class="fa-solid fa-wallet"></i>
+        <div class="starting"><h1>Balance</h1>
+        <p style="font-size: 30px; font-weight: 500;"><%= userData.Balance %></p></div>
+    </div>
+    <div class="main" style="background-color: rgb(209, 85, 83);">
+        <i class="fa-solid fa-sack-dollar"></i>
+        <div class="starting"><h1>Income</h1>
+        <p style="font-size: 30px; font-weight: 500;"><%= userData.Income %></p></div>
+    </div>
+    <div class="main" style="background-color: #bed058;">
+        <i class="fa-solid fa-money-bill-transfer"></i>
+        <div class="starting"><h1>Expenditure</h1>
+        <p style="font-size: 30px; font-weight: 500;"><%= userData.Expenditure %></p></div>
+    </div>
+   </section>
+   <section class="income" id="income">
+    <h1>Income</h1>
+    <div class="income_percent">
+        <div class="circle_container">
+            <div class="outer">
+                <div class="inner">
+                    <div id="income_number1"></div>
+                </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                <defs>
+                   <linearGradient id="GradientColor1">
+                      <stop offset="0%" stop-color="rgb(208, 90, 88)" />
+                      <stop offset="100%" stop-color="#ce9897" />
+                   </linearGradient>
+                </defs>
+                <circle id="circle1" cx="80" cy="80" r="70" stroke-linecap="round" stroke="url(#GradientColor1)" />
+            </svg>
+            <p>Salary</p>
+        </div>
+        <div class="circle_container">
+            <div class="outer">
+                <div class="inner">
+                    <div id="income_number3"></div>
+                </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                <defs>
+                   <linearGradient id="GradientColor2">
+                      <stop offset="0%" stop-color="rgb(88, 208, 98)" />
+                      <stop offset="100%" stop-color="rgb(125, 209, 132)" />
+                   </linearGradient>
+                </defs>
+                <circle id="circle3" cx="80" cy="80" r="70" stroke-linecap="round" stroke="url(#GradientColor2)" />
+            </svg>
+            <p>Refunds/Bonus</p>
+        </div>
+        <div class="circle_container">
+            <div class="outer">
+                <div class="inner">
+                    <div id="income_number2"></div>
+                </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                <defs>
+                   <linearGradient id="GradientColor3">
+                      <stop offset="0%" stop-color="#bed058" />
+                      <stop offset="100%" stop-color="#c9d05f" />
+                   </linearGradient>
+                </defs>
+                <circle id="circle2" cx="80" cy="80" r="70" stroke-linecap="round" stroke="url(#GradientColor3)" />
+            </svg>
+            <p>Rewards</p>
+        </div>
+        <div class="circle_container">
+            <div class="outer">
+                <div class="inner">
+                    <div id="income_number4"></div>
+                </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                <defs>
+                   <linearGradient id="GradientColor4">
+                      <stop offset="0%" stop-color="#7B68EE" />
+                      <stop offset="100%" stop-color="#6A5ACD" />
+                   </linearGradient>
+                </defs>
+                <circle id="circle4" cx="80" cy="80" r="70" stroke-linecap="round" stroke="url(#GradientColor4)" />
+            </svg>
+            <p>Rentals</p>
+        </div>
+    </div>
+    <div class="buttons">
+        <button class="btn" id="addIncomeBtn">Add Income</button>
+        <button class="btn" id="incomeHistoryBtn">Income History</button>
+    </div>
+   </section>
+   <section class="expenditure" id="expenditure">
+    <h1>Expenditure</h1>
+    <div class="expenditure_percent">
+        <div class="circle_container">
+            <div class="outer">
+                <div class="inner">
+                    <div id="expenditure_number1"></div>
+                </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                <defs>
+                   <linearGradient id="ExpenditureGradientColor1">
+                      <stop offset="0%" stop-color="rgb(208, 90, 88)" />
+                      <stop offset="100%" stop-color="#ce9897" />
+                   </linearGradient>
+                </defs>
+                <circle id="circle5" cx="80" cy="80" r="70" stroke-linecap="round" stroke="url(#ExpenditureGradientColor1)" />
+            </svg>
+            <p>Food</p>
+        </div>
+        <div class="circle_container">
+            <div class="outer">
+                <div class="inner">
+                    <div id="expenditure_number3"></div>
+                </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                <defs>
+                   <linearGradient id="ExpenditureGradientColor2">
+                      <stop offset="0%" stop-color="rgb(88, 208, 98)" />
+                      <stop offset="100%" stop-color="rgb(125, 209, 132)" />
+                   </linearGradient>
+                </defs>
+                <circle id="circle7" cx="80" cy="80" r="70" stroke-linecap="round" stroke="url(#ExpenditureGradientColor2)" />
+            </svg>
+            <p>Online-Bills</p>
+        </div>
+        <div class="circle_container">
+            <div class="outer">
+                <div class="inner">
+                    <div id="expenditure_number4"></div>
+                </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                <defs>
+                   <linearGradient id="ExpenditureGradientColor3">
+                      <stop offset="0%" stop-color="#bed058" />
+                      <stop offset="100%" stop-color="#c9d05f" />
+                   </linearGradient>
+                </defs>
+                <circle id="circle8" cx="80" cy="80" r="70" stroke-linecap="round" stroke="url(#ExpenditureGradientColor3)" />
+            </svg>
+            <p>Rent</p>
+        </div>
+        <div class="circle_container">
+            <div class="outer">
+                <div class="inner">
+                    <div id="expenditure_number2"></div>
+                </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                <defs>
+                   <linearGradient id="ExpenditureGradientColor4">
+                      <stop offset="0%" stop-color="#7B68EE" />
+                      <stop offset="100%" stop-color="#6A5ACD" />
+                   </linearGradient>
+                </defs>
+                <circle id="circle6" cx="80" cy="80" r="70" stroke-linecap="round" stroke="url(#ExpenditureGradientColor4)" />
+            </svg>
+            <p>HouseHold</p>
+        </div>
+    </div>
+    <div class="buttons">
+        <button class="btn" id="addExpenditureBtn">Add Expenditure</button>
+        <button class="btn" id="expenditureHistoryBtn">Expenditure History</button>
+    </div>
+   </section>
+
+   <div class="popup" id="addIncomePopup">
+    <h3 style="margin-bottom: 20px;">Income</h3>
+    <span class="close-btn" id="closePopup"><i class="fa-solid fa-xmark"></i></span>
+    <form action="/income" method="post">
+        <input type="hidden" name="name" id="name" value="<%= userData.name %>" />
+        <label for="incomeType">Type</label>
+        <select id="incomeType" name="incomeType" required>
+            <option value="salary">Salary</option>
+            <option value="rental">Rental</option>
+            <option value="refunds/bonus">Refunds/Bonus</option>
+            <option value="rewards">Rewards</option>
+        </select>
+        <label for="incomeDescription">Description</label>
+        <textarea id="incomeDescription" name="incomeDescription" rows="4" required></textarea>
+        <label for="incomeAmount">Amount</label>
+        <input type="text" id="incomeAmount" name="incomeAmount" required>
+        <button type="submit">Submit</button>
+    </form>
+   </div>
+
+   <div class="popup" id="addExpenditurePopup">
+    <h3 style="margin-bottom: 20px;">Expenditure</h3>
+    <span class="close-btn" id="closeExpenditurePopup"><i class="fa-solid fa-xmark"></i></span>
+    <form action="/expenditure" method="post">
+        <input type="hidden" name="name" id="name" value="<%= userData.name %>" />
+        <label for="expenditureType">Type</label>
+        <select id="expenditureType" name="expenditureType" required>
+            <option value="Food">Food</option>
+            <option value="Rent">Rent</option>
+            <option value="Online-Bills">Online-Bills</option>
+            <option value="HouseHold">HouseHold</option>
+        </select>
+        <label for="expenditureDescription">Description</label>
+        <textarea id="expenditureDescription" name="expenditureDescription" rows="4" required></textarea>
+        <label for="expenditureAmount">Amount</label>
+        <input type="text" id="expenditureAmount" name="expenditureAmount" required>
+        <button type="submit">Submit</button>
+    </form>
+   </div>
+
+   <div class="popup" id="incomeHistoryPopup">
+    <h3 style="margin-bottom: 20px;">Income History</h3>
+    <span class="close-btn" id="closeIncomeHistoryPopup"><i class="fa-solid fa-xmark"></i></span>
+    <div id="incomeHistoryContent" class="content">
+        <table id="incomeHistoryTable" class="table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Type</th>
+                    <th>Source</th>
+                    <th>Description</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table rows will be populated here -->
+            </tbody>
+        </table>
+    </div>
+   </div>
+
+   <div class="popup" id="expenditureHistoryPopup">
+    <h3 style="margin-bottom: 20px;">Expenditure History</h3>
+    <span class="close-btn" id="closeExpenditureHistoryPopup"><i class="fa-solid fa-xmark"></i></span>
+    <div id="expenditureHistoryContent" class="content">
+        <table id="expenditureHistoryTable" class="table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Type</th>
+                    <th>Source</th>
+                    <th>Description</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table rows will be populated here -->
+            </tbody>
+        </table>
+    </div>
+   </div>
+
+   <div class="overlay" id="overlay"></div>
+
+   <section class="history" id="history">
+    <h1>Income and Expenditure History</h1>
+    <div id="HistoryContent" class="content">
+        <table id="HistoryTable" class="table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Type</th>
+                    <th>Source</th>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table rows will be populated here -->
+            </tbody>
+        </table>
+    </div>
+</section> 
+<script>
+    var sidemenu = document.getElementById("sidemenu");
+    function openmenu(){
+        sidemenu.style.right = "0";
+    }
+    function closemenu(){
+        sidemenu.style.right = "-200px";
+    }
+    var userName = "<%= userData.name %>";
+    //console.log(userName)
+    const addIncomeBtn = document.getElementById('addIncomeBtn');
+    const addIncomePopup = document.getElementById('addIncomePopup');
+    const overlay = document.getElementById('overlay');
+    const closePopup = document.getElementById('closePopup');
+
+    addIncomeBtn.addEventListener('click', () => {
+        addIncomePopup.style.display = 'block';
+        overlay.style.display = 'block';
+    });
+
+    closePopup.addEventListener('click', () => {
+        addIncomePopup.style.display = 'none';
+        overlay.style.display = 'none';
+    });
+
+    overlay.addEventListener('click', () => {
+        addIncomePopup.style.display = 'none';
+        overlay.style.display = 'none';
+    });
+
+    const addExpenditureBtn = document.getElementById('addExpenditureBtn');
+    const addExpenditurePopup = document.getElementById('addExpenditurePopup');
+    const closeExpenditurePopup = document.getElementById('closeExpenditurePopup');
+
+    addExpenditureBtn.addEventListener('click', () => {
+        addExpenditurePopup.style.display = 'block';
+        overlay.style.display = 'block';
+    });
+
+    closeExpenditurePopup.addEventListener('click', () => {
+        addExpenditurePopup.style.display = 'none';
+        overlay.style.display = 'none';
+    });
+
+    overlay.addEventListener('click', () => {
+        addExpenditurePopup.style.display = 'none';
+        overlay.style.display = 'none';
+    });
+
+    const incomeHistoryBtn = document.getElementById('incomeHistoryBtn');
+    const incomeHistoryPopup = document.getElementById('incomeHistoryPopup');
+    const closeIncomeHistoryPopup = document.getElementById('closeIncomeHistoryPopup');
+
+    incomeHistoryBtn.addEventListener('click', () => {
+        incomeHistoryPopup.style.display = 'block';
+        overlay.style.display = 'block';
+        fetch(`/income/history?name=${userName}`)
+            .then(response => response.json())
+            .then(data => {
+                const tbody = document.getElementById('incomeHistoryTable').getElementsByTagName('tbody')[0];
+                tbody.innerHTML = '';
+                if (data.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="5">No income history available.</td></tr>';
+                } else {
+                    data.forEach(entry => {
+                        const row = tbody.insertRow();
+                        row.innerHTML = `
+                            <td>${new Date(entry.date).toLocaleString()}</td>
+                            <td>${entry.type}</td>
+                            <td>${entry.type_of_source}</td>
+                            <td>${entry.description}</td>
+                            <td>${entry.amount}</td>
+                        `;
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching income history:', error);
+                const tbody = document.getElementById('incomeHistoryTable').getElementsByTagName('tbody')[0];
+                tbody.innerHTML = '<tr><td colspan="5">Error fetching income history. Please try again later.</td></tr>';
+            });
+    });
+
+    closeIncomeHistoryPopup.addEventListener('click', () => {
+        incomeHistoryPopup.style.display = 'none';
+        overlay.style.display = 'none';
+    });
+
+    const expenditureHistoryBtn = document.getElementById('expenditureHistoryBtn');
+    const expenditureHistoryPopup = document.getElementById('expenditureHistoryPopup');
+    const closeExpenditureHistoryPopup = document.getElementById('closeExpenditureHistoryPopup');
+
+    expenditureHistoryBtn.addEventListener('click', () => {
+        expenditureHistoryPopup.style.display = 'block';
+        overlay.style.display = 'block';
+
+        // Fetch expenditure history
+        fetch(`/expenditure/history?name=${userName}`)
+            .then(response => response.json())
+            .then(data => {
+                const tbody = document.getElementById('expenditureHistoryTable').getElementsByTagName('tbody')[0];
+                tbody.innerHTML = ''; // Clear previous content
+                if (data.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="5">No expenditure history available.</td></tr>';
+                } else {
+                    data.forEach(entry => {
+                        const row = tbody.insertRow();
+                        row.innerHTML = `
+                            <td>${new Date(entry.date).toLocaleString()}</td>
+                            <td>${entry.type}</td>
+                            <td>${entry.type_of_source}</td>
+                            <td>${entry.description}</td>
+                            <td>${entry.amount}</td>
+                        `;
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching expenditure history:', error);
+                const tbody = document.getElementById('expenditureHistoryTable').getElementsByTagName('tbody')[0];
+                tbody.innerHTML = '<tr><td colspan="5">Error fetching expenditure history. Please try again later.</td></tr>';
+            });
+    });
+
+    closeExpenditureHistoryPopup.addEventListener('click', () => {
+        expenditureHistoryPopup.style.display = 'none';
+        overlay.style.display = 'none';
+    });
+
+    function addDeleteFunctionality() {
+    const deleteIcons = document.querySelectorAll('.fa-trash');
+    deleteIcons.forEach(icon => {
+        icon.addEventListener('click', function() {
+            const row = this.parentElement.parentElement;
+            const date = row.cells[0].textContent;
+            const name = userName // Adjust as needed to get the username
+
+            // Send delete request to backend
+            fetch('/delete', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name, date }),
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    // Remove row from DOM
+                    row.remove();
+                } else {
+                    console.error('Error deleting entry:', result.error);
+                }
+            })
+            .catch(error => {
+                console.error('Error deleting entry:', error);
+            });
+        });
+    });
+}
+let history = [];
+fetch(`/history?name=${userName}`)
+    .then(response => response.json())
+    .then(data => {
+        const tbody = document.getElementById('HistoryTable').getElementsByTagName('tbody')[0];
+        tbody.innerHTML = '';
+        
+        if (data.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="6">No history available.</td></tr>';
+        } else {
+            data.forEach(entry => {
+                const row = tbody.insertRow();
+                
+                row.innerHTML = `
+                    <td>${new Date(entry.date).toLocaleString()}</td>
+                    <td>${entry.type}</td>
+                    <td>${entry.type_of_source}</td>
+                    <td>${entry.description}</td>
+                    <td>${entry.amount}</td>
+                    <td><i class="fa-solid fa-trash"></i></td>
+                `;
+                
+                let obj = { type: entry.type, type_of_source: entry.type_of_source, amount: entry.amount };
+                history.push(obj); // Add to the history array
+            });
+            addDeleteFunctionality(); // Add delete functionality to new rows
+
+            // Now that history is populated, calculate sums
+            var Income = parseFloat('<%= JSON.stringify(userData.Income) %>');
+            var Expenditure = parseFloat('<%= JSON.stringify(userData.Expenditure) %>');
+
+            function calculateSum(type, source, total, history) {
+            var sum = 0;
+            if(history.length == 0)
+            return 0;
+            for (let i = 0; i < history.length; i++) {
+                var item = history[i];
+                if (item.type === type && item.type_of_source === source) {
+                    sum += item.amount;
+                }
+            }
+            if((sum / total) * 100 <=0)
+            return 1;
+            else
+            return (sum / total) * 100;
+        }
+
+        // Calculate sums
+        var Salary = calculateSum('Income', 'salary', Income, history);
+        var Rental = calculateSum('Income', 'rental', Income, history);
+        var Refunds = calculateSum('Income', 'refunds/bonus', Income, history);
+        var Others = calculateSum('Income', 'rewards', Income, history);
+        var Food = calculateSum('Expenditure', 'Food', Expenditure, history);
+        var HouseHold = calculateSum('Expenditure', 'HouseHold', Expenditure, history);
+        var OnlineBills = calculateSum('Expenditure', 'Online-Bills', Expenditure, history);
+        var Rent = calculateSum('Expenditure', 'Rent', Expenditure, history);
+
+        const incomePercentages = [Salary, Rental, Refunds, Others];
+        const expenditurePercentages = [Food, HouseHold, OnlineBills, Rent];
+
+        const incomeElements = [
+            document.getElementById("income_number1"),
+            document.getElementById("income_number2"),
+            document.getElementById("income_number3"),
+            document.getElementById("income_number4")
+        ];
+
+        const expenditureElements = [
+            document.getElementById("expenditure_number1"),
+            document.getElementById("expenditure_number2"),
+            document.getElementById("expenditure_number3"),
+            document.getElementById("expenditure_number4")
+        ];
+        
+        function animatePercentages(elements, percentages) {
+            elements.forEach((element, index) => {
+                let counter = 0;
+                const interval = setInterval(() => {
+                    if (counter >= Math.round(percentages[index])) {
+                        clearInterval(interval);
+                    } else {
+                        counter++;
+                        element.innerHTML = counter + "%";
+                    }
+                }, 30);
+            });
+        }
+        animatePercentages(incomeElements, incomePercentages);
+        animatePercentages(expenditureElements, expenditurePercentages);
+        function setCircleProgress(id,percentage) {
+            const circle = document.getElementById(id);
+            const radius = circle.r.baseVal.value;
+            const circumference = 2 * Math.PI * radius;
+            const offset = circumference - (percentage / 100) * circumference;
+
+            circle.style.strokeDashoffset = offset;
+        }
+        setCircleProgress('circle1',Salary);
+        setCircleProgress('circle2',Rental);
+        setCircleProgress('circle3',Refunds);
+        setCircleProgress('circle4',Others);
+        setCircleProgress('circle5',Food);
+        setCircleProgress('circle6',HouseHold);
+        setCircleProgress('circle7',OnlineBills);
+        setCircleProgress('circle8',Rent);
+    }
+})
+.catch(error => {
+    console.error('Error fetching history:', error);
+    const tbody = document.getElementById('HistoryTable').getElementsByTagName('tbody')[0];
+    tbody.innerHTML = '<tr><td colspan="6">Error fetching history. Please try again later.</td></tr>';
+});
+</script>
+</body>
+</html>
